@@ -131,6 +131,7 @@ function retriveSchema(spec: any) {
       const bodySchema = lodashGet(operation, ["requestBody", "content", "application/json", "schema"]);
       if (bodySchema) {
         endpointSchema.properties["body"] = bodySchema;
+        endpointSchema.required.push("body");
       }
       schemas[operation.operationId] = endpointSchema;
     }
