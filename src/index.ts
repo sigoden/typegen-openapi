@@ -38,7 +38,7 @@ class Builder {
       this.writeln(`export interface ${pascalCase(name)} {`);
       this.enterScope("object");
       this.buildProperties(schema.properties, schema.required)
-      this.exiteScope();
+      this.exiteScope(true);
       this.writeln("\n");
     }
   }
@@ -74,13 +74,14 @@ class Builder {
     this.scopes.push(kind);
     this.indent += 1;
   }
-  private exiteScope() {
+  private exiteScope(root = false) {
     const kind = this.scopes.pop();
+    const semi = root ? "" : ";";
     this.indent -= 1;
     if (kind === "object") {
-      this.writeln(`};`);
+      this.writeln(`}${semi}`);
     } else {
-      this.writeln("}[];")
+      this.writeln(`}[]${semi}`)
     }
   }
   private writeln(line) {

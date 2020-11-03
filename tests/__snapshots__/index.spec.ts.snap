@@ -3,33 +3,33 @@
 exports[`should works 1`] = `
 "export interface UpdatePetReq {
   body?: Pet;
-};
+}
 
 
 export interface AddPetReq {
   body?: Pet;
-};
+}
 
 
 export interface FindPetsByStatusReq {
   query?: {
     status?: string;
   };
-};
+}
 
 
 export interface FindPetsByTagsReq {
   query?: {
     status?: string[];
   };
-};
+}
 
 
 export interface GetPetByIdReq {
   params?: {
     petId: number;
   };
-};
+}
 
 
 export interface DeletePetReq {
@@ -39,7 +39,7 @@ export interface DeletePetReq {
   headers?: {
     api_key: string;
   };
-};
+}
 
 
 export interface UpdatePetWithFormReq {
@@ -50,7 +50,7 @@ export interface UpdatePetWithFormReq {
     name: string;
     status: string;
   };
-};
+}
 
 
 export interface UploadPetImageReq {
@@ -60,40 +60,40 @@ export interface UploadPetImageReq {
   query?: {
     additionalMetadata: string;
   };
-};
+}
 
 
 export interface GetInventoryReq {
-};
+}
 
 
 export interface PlaceOrderReq {
   body?: Order;
-};
+}
 
 
 export interface GetOrderByIdReq {
   params?: {
     orderId: number;
   };
-};
+}
 
 
 export interface DeleteOrderReq {
   params?: {
     orderId: number;
   };
-};
+}
 
 
 export interface CreateUserReq {
   body?: User;
-};
+}
 
 
 export interface CreateUsersWithListInputReq {
   body?: User[];
-};
+}
 
 
 export interface LoginUserReq {
@@ -101,18 +101,18 @@ export interface LoginUserReq {
     username: string;
     password: string;
   };
-};
+}
 
 
 export interface LogoutUserReq {
-};
+}
 
 
 export interface GetUserByNameReq {
   params?: {
     username: string;
   };
-};
+}
 
 
 export interface UpdateUserReq {
@@ -121,20 +121,20 @@ export interface UpdateUserReq {
   };
   body?: {
   };
-};
+}
 
 
 export interface DeleteUserReq {
   params?: {
     username: string;
   };
-};
+}
 
 
 export interface Category {
   id: number;
   name: string;
-};
+}
 
 
 export interface Pet {
@@ -144,13 +144,13 @@ export interface Pet {
   photoUrls: string[];
   tags: Tag;
   status: string;
-};
+}
 
 
 export interface ApiResponse {
   code: number;
   message: string;
-};
+}
 
 
 export interface Order {
@@ -160,7 +160,7 @@ export interface Order {
   shipDate: string;
   status: string;
   complete: boolean;
-};
+}
 
 
 export interface User {
@@ -172,7 +172,7 @@ export interface User {
   password: string;
   phone: string;
   userStatus: number;
-};
+}
 
 
 "
