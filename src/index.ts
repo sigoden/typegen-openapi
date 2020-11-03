@@ -110,6 +110,7 @@ function retriveSchema(spec: any) {
         let data = endpointSchema.properties[dataKey];
         if (!data) {
           data = endpointSchema.properties[dataKey] = createDefaultSchema();
+          endpointSchema.required.push(dataKey);
         }
         if (obj.$ref) {
           const paths = refToPath(obj.$ref);
