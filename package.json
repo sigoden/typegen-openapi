@@ -1,6 +1,6 @@
 {
   "name": "typegen-openapi",
-  "version": "0.1.8",
+  "version": "0.1.10",
   "description": "Generate type.d from openapi spec",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

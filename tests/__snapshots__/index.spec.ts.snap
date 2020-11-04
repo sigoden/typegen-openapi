@@ -5,11 +5,9 @@ exports[`should works 1`] = `
   body: Pet;
 }
 
-
 export interface AddPetReq {
   body: Pet;
 }
-
 
 export interface FindPetsByStatusReq {
   query: {
@@ -17,20 +15,17 @@ export interface FindPetsByStatusReq {
   };
 }
 
-
 export interface FindPetsByTagsReq {
   query: {
     status?: string[];
   };
 }
 
-
 export interface GetPetByIdReq {
   params: {
     petId: number;
   };
 }
-
 
 export interface DeletePetReq {
   params: {
@@ -40,7 +35,6 @@ export interface DeletePetReq {
     api_key: string;
   };
 }
-
 
 export interface UpdatePetWithFormReq {
   params: {
@@ -52,7 +46,6 @@ export interface UpdatePetWithFormReq {
   };
 }
 
-
 export interface UploadPetImageReq {
   params: {
     petId: number;
@@ -62,15 +55,12 @@ export interface UploadPetImageReq {
   };
 }
 
-
 export interface GetInventoryReq {
 }
-
 
 export interface PlaceOrderReq {
   body: Order;
 }
-
 
 export interface GetOrderByIdReq {
   params: {
@@ -78,23 +68,19 @@ export interface GetOrderByIdReq {
   };
 }
 
-
 export interface DeleteOrderReq {
   params: {
     orderId: number;
   };
 }
 
-
 export interface CreateUserReq {
   body: User;
 }
 
-
 export interface CreateUsersWithListInputReq {
   body: User[];
 }
-
 
 export interface LoginUserReq {
   query: {
@@ -103,17 +89,14 @@ export interface LoginUserReq {
   };
 }
 
-
 export interface LogoutUserReq {
 }
-
 
 export interface GetUserByNameReq {
   params: {
     username: string;
   };
 }
-
 
 export interface UpdateUserReq {
   params: {
@@ -123,19 +106,16 @@ export interface UpdateUserReq {
   };
 }
 
-
 export interface DeleteUserReq {
   params: {
     username: string;
   };
 }
 
-
 export interface Category {
   id: number;
   name: string;
 }
-
 
 export interface Pet {
   id: number;
@@ -146,12 +126,10 @@ export interface Pet {
   status: string;
 }
 
-
 export interface ApiResponse {
   code: number;
   message: string;
 }
-
 
 export interface Order {
   id: number;
@@ -161,7 +139,6 @@ export interface Order {
   status: string;
   complete: boolean;
 }
-
 
 export interface User {
   id: number;
@@ -173,7 +150,6 @@ export interface User {
   phone: string;
   userStatus: number;
 }
-
 
 "
 `;

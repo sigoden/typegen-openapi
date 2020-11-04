@@ -42,7 +42,7 @@ class Builder {
       this.writeln("");
     }
   }
-  private buildProperties(properties: any[], required: string[]) {
+  private buildProperties(properties: any[], required: string[] = []) {
     for (const name in properties) {
       const optional = required.find(v => v === name) ? "" : "?";
       const schema = properties[name];
