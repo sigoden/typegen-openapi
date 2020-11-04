@@ -39,7 +39,7 @@ class Builder {
       this.enterScope("object");
       this.buildProperties(schema.properties, schema.required)
       this.exiteScope(true);
-      this.writeln("\n");
+      this.writeln("");
     }
   }
   private buildProperties(properties: any[], required: string[]) {
