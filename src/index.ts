@@ -24,20 +24,20 @@ function generate(spec: any, options: Options = {}) {
 
 
 class Builder {
-  public buffer: string = "";
+  public buffer = "";
   private options: Options;
-  private indent: number = 0;
+  private indent = 0;
   private scopes: string[] = [];
   constructor(options: Options) {
     this.options = options;
   }
   public build(name, schema) {
     if (schema.$ref) {
-      this.writeln(`export type ${pascalCase(name)} = ${refTail(schema.$ref)}`)
+      this.writeln(`export type ${pascalCase(name)} = ${refTail(schema.$ref)}`);
     } else if (schema.type === "object") {
       this.writeln(`export interface ${pascalCase(name)} {`);
       this.enterScope("object");
-      this.buildProperties(schema.properties, schema.required)
+      this.buildProperties(schema.properties, schema.required);
       this.exiteScope(true);
       this.writeln("");
     }
@@ -46,25 +46,26 @@ class Builder {
     for (const name in properties) {
       const optional = required.find(v => v === name) ? "" : "?";
       const schema = properties[name];
-      const type = getType(schema)
+      const type = getType(schema);
+      const safeName = normalizeName(name);
       if (isScalar(type)) {
-        this.writeln(`${name}${optional}: ${type};`)
+        this.writeln(`${safeName}${optional}: ${type};`);
       } else {
         if (type === "array") {
           const elemSchema = schema.items;
           const type = getType(elemSchema);
           if (isScalar(type)) {
-            this.writeln(`${name}${optional}: ${type}[];`)
+            this.writeln(`${safeName}${optional}: ${type}[];`);
           } else {
-            this.writeln(`${name}${optional}: {`)
+            this.writeln(`${safeName}${optional}: {`);
             this.enterScope(type);
-            this.buildProperties(elemSchema.properties, elemSchema.required)
+            this.buildProperties(elemSchema.properties, elemSchema.required);
             this.exiteScope();
           }
         } else {
-          this.writeln(`${name}${optional}: {`)
+          this.writeln(`${safeName}${optional}: {`);
           this.enterScope(type);
-          this.buildProperties(schema.properties, schema.required)
+          this.buildProperties(schema.properties, schema.required);
           this.exiteScope();
         }
       }
@@ -81,14 +82,14 @@ class Builder {
     if (kind === "object") {
       this.writeln(`}${semi}`);
     } else {
-      this.writeln(`}[]${semi}`)
+      this.writeln(`}[]${semi}`);
     }
   }
   private writeln(line) {
     this.buffer += this.spaces() + line + "\n";
   }
   private spaces() {
-    return " ".repeat(this.indent * this.options.indent)
+    return " ".repeat(this.indent * this.options.indent);
   }
 }
 
@@ -169,17 +170,24 @@ function getType(shcema: any) {
     case "boolean":
     case "object":
     case "array":
-      return shcema.type
+      return shcema.type;
     default:
       if (shcema.properties) {
         return "object";
       } else if (shcema.items) {
-        return "array"
+        return "array";
       } else if (shcema.$ref) {
         return refTail(shcema.$ref);
       }
       return "any";
   }
+}
+
+function normalizeName(name: string) {
+  if (/^[a-zA-Z_$][a-zA-Z_$0-9]*$/.test(name)) {
+    return name;
+  }
+  return `"${name}"`;
 }
 
 export interface Options {
