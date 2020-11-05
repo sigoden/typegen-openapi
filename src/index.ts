@@ -162,6 +162,7 @@ function isScalar(type: string) {
 }
 
 function getType(shcema: any) {
+  if (!shcema) return "any";
   switch (shcema.type) {
     case "integer":
       return "number";
