@@ -150,6 +150,5 @@ export interface User {
   phone: string;
   userStatus: number;
 }
-
 "
 `;
