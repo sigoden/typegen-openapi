@@ -19,7 +19,7 @@ function generate(spec: any, options: Options = {}) {
   for (const name in components) {
     builder.build(pascalCase(name), components[name]);
   }
-  return builder.buffer;
+  return builder.buffer.slice(0, -1);
 }
 
 
@@ -34,6 +34,7 @@ class Builder {
   public build(name, schema) {
     if (schema.$ref) {
       this.writeln(`export type ${pascalCase(name)} = ${refTail(schema.$ref)}`);
+      this.writeln("");
     } else if (schema.type === "object") {
       this.writeln(`export interface ${pascalCase(name)} {`);
       this.enterScope("object");
