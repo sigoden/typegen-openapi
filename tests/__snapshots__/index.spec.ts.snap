@@ -1,154 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should works 1`] = `
-"export interface UpdatePetReq {
-  body: Pet;
-}
-
-export interface AddPetReq {
-  body: Pet;
-}
-
-export interface FindPetsByStatusReq {
-  query: {
-    status?: string;
-  };
-}
-
-export interface FindPetsByTagsReq {
-  query: {
-    status?: string[];
-  };
-}
-
-export interface GetPetByIdReq {
+"export interface Endpoint1Req {
   params: {
-    petId: number;
+    b: string;
+    d: number;
   };
-}
-
-export interface DeletePetReq {
-  params: {
-    petId: number;
+  query: {
+    kind?: string;
   };
   headers: {
-    api_key: string;
-  };
-}
-
-export interface UpdatePetWithFormReq {
-  params: {
-    petId: number;
-  };
-  query: {
-    name: string;
-    status: string;
-  };
-}
-
-export interface UploadPetImageReq {
-  params: {
-    petId: number;
-  };
-  query: {
-    additionalMetadata: string;
-  };
-}
-
-export interface GetInventoryReq {
-}
-
-export interface PlaceOrderReq {
-  body: Order;
-}
-
-export interface GetOrderByIdReq {
-  params: {
-    orderId: number;
-  };
-}
-
-export interface DeleteOrderReq {
-  params: {
-    orderId: number;
-  };
-}
-
-export interface CreateUserReq {
-  body: User;
-}
-
-export interface CreateUsersWithListInputReq {
-  body: User[];
-}
-
-export interface LoginUserReq {
-  query: {
-    username: string;
-    password: string;
-  };
-}
-
-export interface LogoutUserReq {
-}
-
-export interface GetUserByNameReq {
-  params: {
-    username: string;
-  };
-}
-
-export interface UpdateUserReq {
-  params: {
-    username: string;
+    \\"X-App-Key\\": string;
   };
   body: {
+    null: any;
+    bool: boolean;
+    integer?: number;
+    float: number;
+    array1: string[];
+    object1: object1;
+    objectarray: {
+      a: number;
+    }[];
+    time: string;
   };
 }
 
-export interface DeleteUserReq {
-  params: {
-    username: string;
-  };
-}
-
-export interface Category {
-  id: number;
-  name: string;
-}
-
-export interface Pet {
-  id: number;
-  name: string;
-  category: Category;
-  photoUrls: string[];
-  tags: Tag;
-  status: string;
-}
-
-export interface ApiResponse {
-  code: number;
-  message: string;
-}
-
-export interface Order {
-  id: number;
-  petId: number;
-  quantity: number;
-  shipDate: string;
-  status: string;
-  complete: boolean;
-}
-
-export interface User {
-  id: number;
-  username: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  phone: string;
-  userStatus: number;
+export interface Object1 {
+  a: number;
+  b: number;
 }
 "
 `;

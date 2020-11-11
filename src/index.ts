@@ -54,9 +54,9 @@ class Builder {
       } else {
         if (type === "array") {
           const elemSchema = schema.items;
-          const type = getType(elemSchema);
-          if (isScalar(type)) {
-            this.writeln(`${safeName}${optional}: ${type}[];`);
+          const elemType = getType(elemSchema);
+          if (isScalar(elemType)) {
+            this.writeln(`${safeName}${optional}: ${elemType}[];`);
           } else {
             this.writeln(`${safeName}${optional}: {`);
             this.enterScope(type);
